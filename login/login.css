@@ -61,3 +61,22 @@ button:active{
 #credentials{
   display: none;
 }
+#email{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  color: skyblue;
+  font-size: 150%;
+}
+#password{
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  color: skyblue;
+  font-size: 150%;
+}
+#submit{
+  position: absolute;
+  top: 60%;
+  left: 40%;
+}
