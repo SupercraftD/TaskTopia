@@ -13,6 +13,13 @@ button{
   border-radius: 12%;
   border: skyblue;
 }
+button:hover{
+  background-color: lightskyblue;
+  cursor:pointer ;
+}
+button:active{
+  font-size: 170%;
+}
 .teachlog{
   position: absolute;
   top: 30%;
