@@ -56,3 +56,8 @@ button:active{
   top: 75%;
   right: 45%;
 }
+
+
+#credentials{
+  display: none;
+}
