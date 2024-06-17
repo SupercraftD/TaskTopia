@@ -48,6 +48,7 @@ button:active{
 }
 .about{
   grid-area: 3 / 2 / 5 / 3;
+  max-height: 80%;
 }
 .parsign{
   grid-area: 4 / 1 / 5 / 2;
