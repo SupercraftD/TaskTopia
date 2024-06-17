@@ -3,7 +3,7 @@ body {
   background-size: cover;
 }
 h1{
-  font-size: 350%;
+  font-size: 650%;
   text-align: center;
   color: skyblue;
 }
@@ -15,7 +15,7 @@ h1{
 }
 button{
   background-color: skyblue;
-  font-size: 180%;
+  font-size: 380%;
   border-radius: 12%;
   border: skyblue;
   width: fit-content;
