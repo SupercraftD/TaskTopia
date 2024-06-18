@@ -39,6 +39,11 @@ window.signup = function(type){
 function showInputs(){
     document.getElementById("buttons").style.display = 'none';
     document.getElementById("credentials").style.display = 'grid';    
+    if (createNewAcc){
+        document.getElementById("name").style.display = "block";
+    }else{
+        document.getElementById("name").style.display = "none";
+    }
 }
 
 //submit function is called when user presses submit. Either logs in or signs up.
@@ -55,12 +60,15 @@ window.submit = function(){
             //signed up successfully, send user to main page
             const user = userCredentials.user
 
+            let name = document.getElementById("nameInput").value
+
             console.log(user)
             console.log(userCredentials)
 
             await setDoc(doc(db, "Users", user.uid),{
                 type:window.accountType,
-                joined:serverTimestamp()
+                joined:serverTimestamp(),
+                name:name
             })
 
             window.location = "../index.html"

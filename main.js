@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
 
 
 const firebaseConfig = {
@@ -16,15 +17,26 @@ const firebaseConfig = {
 //initialize the firebase app and authentication
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+const db = getFirestore(app)
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async(user) => {
     if (user) {
 
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
 
       const uid = user.uid;
-      alert(uid)
+      
+      const userDoc = await getDoc(doc(db, "Users", uid))
+
+      if (userDoc.exists()){
+
+        const data = userDoc.data()
+
+        alert("Hello, "+data.name+"!")
+
+      }
+
 
     } else {
 
