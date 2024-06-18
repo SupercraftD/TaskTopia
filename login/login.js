@@ -41,6 +41,7 @@ function showInputs(){
     document.getElementById("credentials").style.display = 'grid';    
     if (createNewAcc){
         document.getElementById("name").style.display = "block";
+        document.getElementById("nameInputLabel").innerHTML = window.accountType + "'s Name"
     }else{
         document.getElementById("name").style.display = "none";
     }
