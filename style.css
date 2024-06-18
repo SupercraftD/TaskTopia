@@ -44,5 +44,8 @@ button:active{
   grid-area: 2/2/3/3;
 }
 #tasks{
-  grid-area: 3/1/4/3;
+  grid-area: 3/1/4/2;
+}
+#settings{
+  grid-area: 3/2/4/3;
 }
