@@ -117,7 +117,7 @@ onAuthStateChanged(auth, async(user) => {
             }
             
             document.getElementById("top").innerHTML = "In Lobby!"
-            
+            document.getElementById("leave").style.display = "block"
             const unsub = onSnapshot(doc(db, "QuizBowl", lobbyId), lobbyUpdate)
 
         }
@@ -145,9 +145,12 @@ async function lobbyUpdate(d){
     lobby = d.data()
 
     if (!lobby.started){
+        document.getElementById("playerCount").innerHTML = lobby.players.length.toString()
         if (cUser.uid == lobby.host){
             if (lobby.players.length > 1){
                 document.getElementById("enter").style.display = 'block'
+            }else{
+                document.getElementById("enter").style.display = 'none'
             }
         }
     }else{
@@ -234,7 +237,9 @@ async function lobbyUpdate(d){
                 setTimeout(async()=>{
                     lobby.timeUp = false
                     lobby.currentQuestion++
-                    lobby.points[wi]++
+                    if (wi!=''){
+                        lobby.points[wi]++
+                    }
                     await setDoc(doc(db, "QuizBowl",lobby.id),lobby)    
                 },2000)
             }
@@ -254,6 +259,27 @@ window.startGame = async function(){
     document.getElementById("lobby").style.display = 'none';
 
     lobby.started = true
+    await updateDoc(doc(db,"QuizBowl","Lobbies"),{openLobby:false})
     await setDoc(doc(db, "QuizBowl", lobby.id), lobby)
 
+}
+
+window.leave = async function(){
+    document.getElementById("leave").style.display = 'none'
+    if (lobby){
+        if (cUser.uid == lobby.host){
+            if (lobby.players.length > 1){
+                lobby.host = lobby.players[1]
+                lobby.players.shift()
+                await setDoc(doc(db,"QuizBowl",lobby.id),lobby)
+            }else{
+                await updateDoc(doc(db,"QuizBowl","Lobbies"),{openLobby:false})
+            }
+        }else{
+            console.log(lobby.players,lobby.players.indexOf(cUser.uid))
+            lobby.players.splice(lobby.players.indexOf(cUser.uid),1)
+            await setDoc(doc(db,"QuizBowl",lobby.id),lobby)
+        }
+    }
+    window.location.href = "../index.html"
 }

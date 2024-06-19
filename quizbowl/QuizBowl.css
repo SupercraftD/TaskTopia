@@ -46,6 +46,7 @@ h1{
   cursor: pointer;
   appearance: none;
   background-color: inherit;
+  display:none;
 }
 #leave:hover{
   cursor:pointer ;
