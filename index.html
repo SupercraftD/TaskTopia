@@ -3,7 +3,8 @@
 <head>
   <title>replit</title>
   <link href="style.css" rel="stylesheet"/>
-  <script src="script.js"></script>
+  <script src="main.js" type="module"></script>
+  <link rel="manifest" href="/manifest.json" />
 </head>
 <body>
   <h1>MENU</h1>
@@ -15,7 +16,6 @@
     <button id="tasks">View tasks</button>
     <button id="settings">Settings</button>
   </div>
-</body>
 
   <script>
     if('serviceWorker' in navigator) {

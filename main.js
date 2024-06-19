@@ -35,6 +35,13 @@ onAuthStateChanged(auth, async(user) => {
 
         alert("Hello, "+data.name+"!")
 
+        document.getElementById("quiz").onclick = function(){
+          window.location.href = "quizbowl/QuizBowl.html"
+        }
+
+
+      }else{
+        alert('where doc??')
       }
 
 
