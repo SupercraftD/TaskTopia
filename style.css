@@ -49,3 +49,6 @@ button:active{
 #settings{
   grid-area: 3/2/4/3;
 }
+#draw{
+  grid-area: 4/1/5/3;
+}
