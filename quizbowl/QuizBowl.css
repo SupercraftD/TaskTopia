@@ -5,7 +5,7 @@ body {
 h1{
   font-size: 650%;
   text-align: center;
-  color: skyblue;
+  color: darkblue;
 }
 #lobby{
   position:absolute;
@@ -33,11 +33,12 @@ h1{
   font-size: 350%;
 }
 #enter{
+  display: none;
   grid-area: 1/1/2/3;
 }
 #players{
   grid-area: 2/1/3/2;
-  font-size: 200%;
+  font-size: 400%;
 }
 #leave{
   grid-area: 2/2/3/3;
