@@ -77,7 +77,8 @@ onAuthStateChanged(auth, async(user) => {
                     c.players.push(user.uid)
                     c.playerAnswers[user.uid] = []
                     c.points[user.uid] = 0
-
+                    c.playerNames[user.uid] = uName
+                    
                     await setDoc(doc(db,"QuizBowl",lobbyId),c)
                 }
 
@@ -85,7 +86,7 @@ onAuthStateChanged(auth, async(user) => {
     
                 //no open lobby - create one
     
-                const response = await fetch("https://opentdb.com/api.php?amount=10&type=multiple");
+                const response = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
                 const questions = await response.json();
     
                 if (questions.response_code != 0){
@@ -97,15 +98,17 @@ onAuthStateChanged(auth, async(user) => {
                     players:[user.uid],
                     questions:questions.results,
                     host:cUser.uid,
-                    id:makeid(10),
+                    id:makeid(20),
                     started:false,
                     currentQuestion:0,
                     timeUp:false,
                     playerAnswers:{},
-                    points:{}
+                    points:{},
+                    playerNames:{}
                 }
                 currentLobby.playerAnswers[cUser.uid] = []
                 currentLobby.points[cUser.uid] = 0
+                currentLobby.playerNames[cUser.uid] = uName
                 lData.openLobby = true
                 lData.openLobbyId = currentLobby.id
                 
@@ -157,9 +160,32 @@ async function lobbyUpdate(d){
         document.getElementById("lobby").style.display = 'none';
 
         if (!lobby.timeUp){
+            
+            if (lobby.currentQuestion >= lobby.questions.length){
+                //round ends
+
+                if (timerId){
+                    clearTimeout(timerId)
+                }
+
+                let a = []
+                for (let p in lobby.points) {
+                    a.push([p,lobby.points[p]])
+                }
+                a.sort((a,b)=>{return b[1]-a[1]})
+
+                document.getElementById("top").innerHTML = "Leaderboard:"
+
+                for (let i=0; i<a.length; i++){
+                    document.getElementById("winners").innerHTML += "<li>"+lobby.playerNames[a[i][0]]+"</li>"
+                }
+
+                return
+            }
             let question = lobby.questions[lobby.currentQuestion]
             if (displayedQuestion != lobby.currentQuestion){
                 
+
                 document.getElementById("top").innerHTML = question.question
 
                 displayedQuestion = lobby.currentQuestion
