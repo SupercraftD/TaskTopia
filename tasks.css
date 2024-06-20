@@ -56,6 +56,12 @@ h1{
 #text2{
   grid-area: 1/4/2/5;
 }
+#description{
+  display: none;
+  text-align: center;
+  color: skyblue;
+  font-size: 300%;
+}
 button{
   background-color: skyblue;
   border-radius: 20%;
