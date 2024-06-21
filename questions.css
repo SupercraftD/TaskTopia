@@ -1,0 +1,55 @@
+body {
+  background-image: url("bg.png");
+  background-size: cover;
+}
+h1{
+  font-size: 650%;
+  text-align: center;
+  color: skyblue;
+}
+#filters {
+  height: 60%;
+  width: 100%;
+  display: grid;
+  grid-template: '1fr 1fr 1fr/ 2fr';
+  justify-items: center;
+  grid-row-gap: 10%;
+}
+#category{
+  grid-area: 1 / 1 / 2 / 2;
+  color: skyblue;
+  font-size: 350%;
+}
+#difficulty{
+  grid-area: 2 / 1 / 3 / 2;
+  color: skyblue;
+  font-size: 350%;
+}
+#type{
+  grid-area: 3 / 1 / 4 / 2;
+  color: skyblue;
+  font-size: 350%;
+}
+#filter{
+  grid-area: 4 / 1 / 5 / 2;
+}
+input{
+  font-size: 50%;
+  color: skyblue;
+  border: skyblue;
+}
+button{
+  padding: 20px;
+  background-color: skyblue;
+  font-size: 380%;
+  border-radius: 12%;
+  border: skyblue;
+  width: fit-content;
+}
+button:hover{
+  background-color: lightskyblue;
+  cursor:pointer ;
+}
+button:active{
+  font-size: 350%;
+}
