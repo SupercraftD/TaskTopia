@@ -1,0 +1,29 @@
+body {
+  background-image: url("bg.png");
+  background-size: cover;
+}
+#top{
+  display: grid;
+  grid-template: 1fr / 3fr 1fr;
+}
+h1{
+  grid-area: 1 / 1 / 2 / 2;
+  font-size: 450%;
+  text-align: center;
+  color: skyblue;
+}
+#coins{
+  grid-area: 1/ 2 / 2 / 3;
+  font-size: 150%;
+  color: yellow;
+}
+#shop {
+  height: 60%;
+  width: 100%;
+  display: grid;
+  grid-template: 2fr/1fr 1fr;
+  justify-items: center;
+  grid-row-gap: 10%;
+  font-size: 250%;
+  color: skyblue;
+}
