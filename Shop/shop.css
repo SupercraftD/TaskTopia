@@ -27,3 +27,15 @@ h1{
   font-size: 250%;
   color: skyblue;
 }
+button{
+  background-color: skyblue;
+  border: skyblue;
+  border-radius: 20%;
+  font-size: 60%;
+}
+button:hover{
+  cursor: pointer;
+}
+button:active{
+  font-size: 55%;
+}
