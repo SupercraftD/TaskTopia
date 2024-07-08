@@ -16,6 +16,7 @@ h1{
   grid-area: 1/ 2 / 2 / 3;
   font-size: 400%;
   color: yellow;
+  text-align: center;
 }
 #shop {
   height: 60%;
