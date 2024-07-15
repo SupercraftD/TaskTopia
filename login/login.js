@@ -19,6 +19,18 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const db = getFirestore(app)
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
 //initialize createNewAcc as false
 let createNewAcc = false
 
@@ -66,11 +78,17 @@ window.submit = function(){
             console.log(user)
             console.log(userCredentials)
 
-            await setDoc(doc(db, "Users", user.uid),{
+            let userInfo = {
                 type:window.accountType,
                 joined:serverTimestamp(),
                 name:name
-            })
+            }
+
+            if (window.accountType == 'parent'){
+                userInfo.parentId = makeid(5)
+            }
+
+            await setDoc(doc(db, "Users", user.uid),userInfo)
 
             window.location = "../index.html"
 

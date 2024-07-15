@@ -32,8 +32,18 @@ onAuthStateChanged(auth, async(user) => {
       if (userDoc.exists()){
 
         const data = userDoc.data()
-
         alert("Hello, "+data.name+"!")
+
+        document.getElementById("logout").onclick = async function(){
+          await auth.signOut()
+          window.location.href = window.location.href
+        }
+
+        if (data.type == "parent"){
+          document.getElementById("parent").style.display = 'grid'
+          document.getElementById("buttons").style.display = 'none'
+          document.getElementById("parentIdCode").innerHTML = data.parentId
+        }
 
         document.getElementById("quiz").onclick = function(){
           window.location.href = "quizbowl/QuizBowl.html"
