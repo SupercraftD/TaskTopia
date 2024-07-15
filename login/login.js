@@ -81,7 +81,9 @@ window.submit = function(){
             let userInfo = {
                 type:window.accountType,
                 joined:serverTimestamp(),
-                name:name
+                name:name,
+                coins:0,
+                ownedItems:[]
             }
 
             if (window.accountType == 'parent'){

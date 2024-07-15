@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href="shop.css" rel="stylesheet" type="text/css" />
-  <script src="shop.js"></script>
+  <script type="module" src="shop.js"></script>
 </head>
 <body>
   <button id="backButton" style="position: absolute;left:10px;right:10px;font-size:350%;width:fit-content" onclick="window.location.href = '../index.html'">Back</button>
@@ -10,38 +10,21 @@
     <h1>Shop</h1>
     <div id="coins">
       <label>Coins: </label>
-      <label>5</label>
+      <label id="coinCount">5</label>
     </div>
   </div>
   <div id=shop>
-    <div>
-      <label>name</label>
-      <br>
-      <label>price</label>
-      <br>
-      <button>buy</button>
-    </div>
-    <div>
-      <label>name</label>
-      <br>
-      <label>price</label>
-      <br>
-      <button>buy</button>
-    </div>
-    <div>
-      <label>name</label>
-      <br>
-      <label>price</label>
-      <br>
-      <button>buy</button>
-    </div>
-    <div>
-      <label>name</label>
-      <br>
-      <label>price</label>
-      <br>
-      <button>buy</button>
-    </div>
   </div>
+
+ <!-- the itemTemplate div should remain OUTSIDE of the shop div-->
+
+  <div id="itemTemplate" class="items">
+    <label>name</label>
+    <br>
+    <label>price</label>
+    <br>
+    <button>buy</button>
+  </div>
+
 </body>
 </html>
