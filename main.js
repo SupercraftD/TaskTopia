@@ -48,6 +48,15 @@ onAuthStateChanged(auth, async(user) => {
         document.getElementById("quiz").onclick = function(){
           window.location.href = "quizbowl/QuizBowl.html"
         }
+        document.getElementById("tasks").onclick = function(){
+          window.location.href = "tasks/tasks.html"
+        }
+        document.getElementById("settings").onclick = function(){
+          window.location.href = "settings/settings.html"
+        }
+        document.getElementById("shop").onclick = function(){
+          window.location.href = "Shop/shop.html"
+        }
 
 
       }else{
