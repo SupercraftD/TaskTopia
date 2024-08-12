@@ -7,7 +7,7 @@ h1{
   text-align: center;
   color: skyblue;
 }
-settings {
+.settings {
   display: grid;
   position: absolute;
   height: 60%;
