@@ -1,0 +1,47 @@
+body {
+  background-image: url("bg.png");
+  background-size: cover;
+}
+h1{
+  font-size: 650%;
+  text-align: center;
+  color: skyblue;
+}
+.container {
+  display: grid;
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  grid-template: '3fr 1fr/ 1fr 1fr 1fr';
+  justify-items: center;
+  grid-row-gap: 10%;
+}
+
+.id {
+  grid-area: 1/2/2/3;
+  font-size: 500%;
+  text-align: center;
+  color: skyblue;
+}
+
+button{
+  padding: 2%;
+  background-color: skyblue;
+  font-size: 75%;
+  border-radius: 12%;
+  border: skyblue;
+  text-align: center;
+}
+button:hover{
+  background-color: lightskyblue;
+  cursor:pointer ;
+}
+button:active{
+  font-size: 50%;
+}
+
+.id > input{
+
+  font-size: 50%;
+
+}

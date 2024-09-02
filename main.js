@@ -57,6 +57,9 @@ onAuthStateChanged(auth, async(user) => {
         document.getElementById("shop").onclick = function(){
           window.location.href = "Shop/shop.html"
         }
+        document.getElementById("connect").onclick = function(){
+          window.location.href = "Connect/connect.html"
+        }
 
 
       }else{
