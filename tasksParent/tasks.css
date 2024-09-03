@@ -2,6 +2,7 @@ body {
   background-image: url("bg.png");
   background-size: cover;
   text-align: center;
+  margin: 0px;
 }
 #top{
   display: grid;
@@ -67,7 +68,7 @@ input {
 h2{
   font-size: 500%;
 }
-#list{
+#taskTemplate{
   display: none;
 }
 button{

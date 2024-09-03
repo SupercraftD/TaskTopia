@@ -50,14 +50,61 @@ onAuthStateChanged(auth, async(user) => {
               completed:false
             }
 
-            await updateDoc(doc(db, "Users", uid), {
-              tasks: arrayUnion(taskObj)
-            })
-
+            if (taskObj.time != ''){
+              await updateDoc(doc(db, "Users", uid), {
+                tasks: arrayUnion(taskObj)
+              })
+  
+            }else{
+              alert("set a time!")
+            }
 
             submit.style.display = 'block'
 
             window.location.href = window.location.href
+          }
+          data.tasks.sort((a,b)=>{
+            const v = (x)=>{
+              return parseInt(x.time.split(":")[0])*60 + parseInt(x.time.split(":")[1])
+            }
+
+            return v(a) - v(b)
+          })
+
+          for (let task of data.tasks){
+
+            let taskElement = document.getElementById("taskTemplate").cloneNode(true)
+            taskElement.id = task.name
+
+            console.log(taskElement.childNodes)
+
+            let [a,nameElement,b,timeElement,c,completedElement,d,removeButton] = taskElement.childNodes
+            nameElement.innerHTML = task.name
+            timeElement.innerHTML = task.time
+            
+            if (task.completed){
+              completedElement.innerHTML = "Yes"
+            }else{
+              completedElement.innerHTML = "No"
+            }
+
+            taskElement.style.display = 'block'
+            document.getElementById("list").appendChild(taskElement)
+
+            removeButton.onclick = async function(){
+              taskElement.style.display = 'none'
+
+              await updateDoc(doc(db, "Users", uid), {
+                tasks: arrayRemove(task)
+              })
+  
+  
+              taskElement.style.display = 'block'
+  
+              window.location.href = window.location.href
+
+            }
+
           }
 
         }else{
