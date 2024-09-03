@@ -1,0 +1,84 @@
+body {
+  background-image: url("bg.png");
+  background-size: cover;
+  text-align: center;
+}
+#top{
+  display: grid;
+  grid-template: 3fr/1fr 1fr 1fr;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+#leave{
+  grid-area: 1/1/2/2;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+#list{
+  text-align: center;
+}
+
+.task{
+  background-color: aquamarine;
+  margin: auto;
+  padding: 15px;
+  border-radius: 20px;
+
+  width:75%;
+  text-align: center;
+  font-size: 300%;
+  font-family: sans-serif;
+  margin-bottom: 45px;
+}
+
+.task > p {
+  text-wrap:balance;
+}
+
+.task > button {
+  font-size: 100%;
+}
+
+hr {
+  border: 10px solid gray;
+}
+
+h1, h2, label {
+  font-size: 550%;
+  text-align: center;
+  color: skyblue;
+}
+label{
+  font-size: 400%;
+}
+input {
+  font-size: 300%;
+}
+#addTask{
+  margin:auto;
+  width:30%;
+  font-size: 400%;
+  margin-top: 40px;
+}
+h2{
+  font-size: 500%;
+}
+#list{
+  display: none;
+}
+button{
+  background-color: skyblue;
+  border-radius: 20%;
+  border: skyblue;
+}
+button:hover{
+  background-color: lightskyblue;
+  cursor: pointer;
+}
+button:active{
+  font-size: 50%;
+}

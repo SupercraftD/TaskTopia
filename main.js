@@ -43,6 +43,9 @@ onAuthStateChanged(auth, async(user) => {
           document.getElementById("parent").style.display = 'grid'
           document.getElementById("buttons").style.display = 'none'
           document.getElementById("parentIdCode").innerHTML = data.parentId
+          document.getElementById("list").onclick = function(){
+            window.location.href = "tasksParent/tasks.html"
+          }
         }
 
         document.getElementById("quiz").onclick = function(){

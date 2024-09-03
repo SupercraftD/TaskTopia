@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, updateDoc, getDoc, serverTimestamp, getDocs, query, collection, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
 
 
 const firebaseConfig = {
@@ -14,55 +14,10 @@ const firebaseConfig = {
 };
 
 
-let input
-let btn
-
-let uid
-let userDoc
-
 //initialize the firebase app and authentication
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const db = getFirestore(app)
-
-async function submit(){
-
-  //  btn.style.display = 'none'
-
-    let id = input.value
-
-    const q = query(collection(db, "Users"), where("type","==","parent"))
-    const qS = await getDocs(q)
-
-    let found = false
-
-    for (let d of qS.docs){
-
-        const data = d.data()
-        console.log(data)
-
-        if (data.parentId == id){
-
-            await updateDoc(doc(db, "Users", uid), {
-                parent: id
-            })
-            found = true
-
-        }
-
-    }
-
-    if (!found){
-        alert("no parent id found!")
-    }else{
-        alert("successfully connected!")
-    }
-
-   // btn.style.display = 'grid'
-
-}
-
-
 
 onAuthStateChanged(auth, async(user) => {
     if (user) {
@@ -70,23 +25,31 @@ onAuthStateChanged(auth, async(user) => {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
 
-        uid = user.uid;
+      const uid = user.uid;
       
-        userDoc = await getDoc(doc(db, "Users", uid))
+      const userDoc = await getDoc(doc(db, "Users", uid))
 
       if (userDoc.exists()){
 
         const data = userDoc.data()
         alert("Hello, "+data.name+"!")
 
-        input = document.getElementById("in")
-        btn = document.getElementById("submit")
 
-        btn.onclick = submit
-    
+        if (data.type == "parent"){
+          
+          
+
+
+        }else{
+          alert("parent only page")
+          window.location.href = "../index.html"
+        }
+
       }else{
         alert('where doc??')
       }
+
+
     } else {
 
       // User is signed out

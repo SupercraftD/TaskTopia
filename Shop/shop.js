@@ -51,7 +51,7 @@ onAuthStateChanged(auth, async(user) => {
       // User is signed out
       // send to login page
 
-      window.location.href = "login/login.html"
+      window.location.href = "../login/login.html"
     }
 });
 

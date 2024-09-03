@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="tasks.css" />
+  <script src="tasks.js"></script>
+</head>
+<body>
+  <div id="top">
+    <button id="leave" onclick="window.location.href='../index.html'">
+      <img src="red.png" alt="leave" height="40%" width="50%"/>
+    </button>
+    <h1 id="heading">Tasks</h1>
+  </div>
+  <h2>Current Tasks:</h2>
+  <div id="list">
+    <div class="task" id="taskTemplate">
+      <p class="name">Do Dishefkjwivw4i hji23234234234432ouhefiuhs</p>
+      <p class="time">13:00</p>
+      <p class="completed">Completed yet: No</p>
+      <button>Remove</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>Add Task</h2>
+
+  <label for="taskName">Task Name: </label><input id="taskName" type="text" />
+  <br>
+  <label for="taskTime">Task Time: </label><input id="taskName" type="time" />
+  <br>
+  <button id="addTask">Add Task</button>
+</body>
+</html>
