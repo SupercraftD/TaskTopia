@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+import { getFirestore, doc, setDoc, getDoc, serverTimestamp, arrayUnion, arrayRemove, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
 
 
 const firebaseConfig = {
@@ -37,8 +37,28 @@ onAuthStateChanged(auth, async(user) => {
 
         if (data.type == "parent"){
           
-          
+          let nameIn = document.getElementById("taskName")
+          let timeIn = document.getElementById("taskTime")
+          let submit = document.getElementById("addTask")
 
+          submit.onclick = async function(){
+            submit.style.display = 'none'
+
+            let taskObj = {
+              name:nameIn.value,
+              time:timeIn.value,
+              completed:false
+            }
+
+            await updateDoc(doc(db, "Users", uid), {
+              tasks: arrayUnion(taskObj)
+            })
+
+
+            submit.style.display = 'block'
+
+            window.location.href = window.location.href
+          }
 
         }else{
           alert("parent only page")

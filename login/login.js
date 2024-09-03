@@ -88,6 +88,7 @@ window.submit = function(){
 
             if (window.accountType == 'parent'){
                 userInfo.parentId = makeid(5)
+                userInfo.tasks = []
             }
 
             await setDoc(doc(db, "Users", user.uid),userInfo)
