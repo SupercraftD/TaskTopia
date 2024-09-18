@@ -83,9 +83,9 @@ onAuthStateChanged(auth, async(user) => {
             timeElement.innerHTML = task.time
             
             if (task.completed){
-              completedElement.innerHTML = "Yes"
+              completedElement.innerHTML = "Completed yet: Yes"
             }else{
-              completedElement.innerHTML = "No"
+              completedElement.innerHTML = "Completed yet: No"
             }
 
             taskElement.style.display = 'block'

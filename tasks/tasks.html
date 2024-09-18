@@ -2,120 +2,26 @@
 <html>
 <head>
   <link rel="stylesheet" href="tasks.css" />
-  <script src="tasks.js"></script>
+  <script src="tasks.js" type="module"></script>
 </head>
 <body>
   <div id="top">
     <button id="leave" onclick="window.location.href='../index.html'">
-      <img src="red.png" alt="leave" height="40%" width="90%"/>
+      <img src="red.png" alt="leave" height="40%" width="50%"/>
     </button>
     <h1 id="heading">Tasks</h1>
-    <button id="show" onclick="showTask()">view current</button>
   </div>
-  <div id="tasks">
-    <div id=day>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-    </div>
-    <div id=text1>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-    </div>
-    <div id=night>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-      <br>
-      <label>00:00</label>
-    </div>
-    <div id=text2>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
-      <br>
-      <button onclick="showTask()" id="view">view</button>
+  <h2>Current Tasks:</h2>
+  <div id="list">
+    <div class="task" id="taskTemplate">
+      <p class="name">Do Dishefkjwivw4i hji23234234234432ouhefiuhs</p>
+      <p class="time">13:00</p>
+      <p class="completed">Completed yet: No</p>
+      <button>Completed</button>
     </div>
   </div>
-  <div id="description">
-    <p>Task description</p>
-  </div>
+
+  <hr>
+
 </body>
 </html>
