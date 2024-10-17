@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, serverTimestamp, arrayUnion, arrayRemove, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+import { getFirestore, doc, setDoc, getDoc,getDocs, serverTimestamp, arrayUnion, arrayRemove, updateDoc , query, collection, where} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
 
 
 const firebaseConfig = {
@@ -63,6 +63,39 @@ onAuthStateChanged(auth, async(user) => {
 
             window.location.href = window.location.href
           }
+
+          let coins = document.getElementById("coinCount")
+          let addCoins = document.getElementById("addCoins")
+
+          addCoins.onclick = async function(){
+            addCoins.disabled = true
+
+            const q = query(collection(db, "Users"), where("type","==","kid"))
+            const qS = await getDocs(q)
+        
+            let found = false        
+            for (let d of qS.docs){
+        
+                const dataP = d.data()
+
+                if (dataP.parent == data.parentId){
+                  found = true
+                  
+                  dataP.coins += parseFloat(coins.value)
+                  await setDoc(doc(db,"Users/"+d.id),dataP);
+                  alert("added coins to "+dataP.name + ", total: "+dataP.coins.toString() );
+
+                }
+        
+            }
+        
+            if (!found){
+                alert("no kid found!")
+            }
+            addCoins.disabled = false
+          }
+
+
           data.tasks.sort((a,b)=>{
             const v = (x)=>{
               return parseInt(x.time.split(":")[0])*60 + parseInt(x.time.split(":")[1])

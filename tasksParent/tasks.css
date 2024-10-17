@@ -59,7 +59,7 @@ label{
 input {
   font-size: 300%;
 }
-#addTask{
+#addTask, #addCoins{
   margin:auto;
   width:30%;
   font-size: 400%;
