@@ -63,6 +63,9 @@ onAuthStateChanged(auth, async(user) => {
         document.getElementById("connect").onclick = function(){
           window.location.href = "Connect/connect.html"
         }
+        document.getElementById("avatar").onclick = function(){
+          window.location.href = "Avatar/avatar.html"
+        }
 
 
       }else{

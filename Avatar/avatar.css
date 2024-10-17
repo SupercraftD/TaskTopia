@@ -1,0 +1,74 @@
+body {
+  background-image: url("bg.png");
+  background-size: cover;
+}
+#top{
+  margin-bottom: 0px;
+}
+h1{
+  font-size: 550%;
+  text-align: center;
+  color: skyblue;
+  margin-bottom: 0px;
+}
+#avatar{
+  text-align: center;
+}
+img{
+  width:30%;
+  display: none;
+  position: absolute;
+}
+#head{
+  display: block;
+  left:35%;
+  top:400px;
+}
+#eyes{
+  left: 35%;
+  top:445px;
+}
+#hair{
+  left: 35%;
+  top:365px;
+}
+#shirt{
+  left: 35%;
+  top:530px;
+}
+#pants{
+  width: 16%;
+  left: 42%;
+  top:750px;
+}
+
+#bar{
+  font-size: 550%;
+  text-align: center;
+  color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+p{
+  margin: 0px;
+  font-size: 550%;
+  text-align: center;
+  color: skyblue;
+
+}
+#bar > button{
+  font-size: 75%;
+  text-align: center;
+  color: skyblue;
+}
+button{
+  display: block;
+  margin-right: 20px;
+}
+
+#templateButton{
+  display: none;
+}
