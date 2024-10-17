@@ -14,8 +14,8 @@ h1{
 }
 #coins{
   grid-area: 1/ 2 / 2 / 3;
-  font-size: 400%;
-  color: yellow;
+  font-size: 500%;
+  color: rgb(168, 168, 14);
   font-weight: 600;
   text-align: center;
 }
@@ -48,4 +48,7 @@ button:active{
   background-color: green;
   padding: 40px;
   border-radius: 30px;
+}
+img{
+  width:100%;
 }

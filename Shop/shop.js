@@ -91,9 +91,10 @@ async function refresh(){
       itemElement.style.display = "block"
 
       let name = itemElement.children[0]
-      let price = itemElement.children[2]
-      let buy = itemElement.children[4]
-
+      let img = itemElement.children[2]
+      let price = itemElement.children[4]
+      let buy = itemElement.children[6]
+      img.src = "/"+item.image
       name.innerHTML = "Name: " + itemName
       price.innerHTML = "Price: " + item.cost.toString()
       buy.onclick = function(){
