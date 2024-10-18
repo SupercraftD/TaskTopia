@@ -7,7 +7,7 @@ h1{
   text-align: center;
   color: skyblue;
 }
-#child{
+#buttons{
   position:absolute;
   display: grid;
   grid-template: '3fr 3fr/ 2fr 2fr 2fr';
