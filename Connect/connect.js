@@ -77,7 +77,6 @@ onAuthStateChanged(auth, async(user) => {
       if (userDoc.exists()){
 
         const data = userDoc.data()
-        alert("Hello, "+data.name+"!")
 
         input = document.getElementById("in")
         btn = document.getElementById("submit")

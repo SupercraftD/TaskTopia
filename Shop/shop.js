@@ -37,7 +37,6 @@ onAuthStateChanged(auth, async(user) => {
       if (userDoc.exists()){
 
         data = userDoc.data()
-        alert("Hello, "+data.name+"!")
         
         refresh()
 

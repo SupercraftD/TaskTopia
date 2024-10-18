@@ -53,7 +53,6 @@ onAuthStateChanged(auth, async(user) => {
       if (userDoc.exists()){
 
         const data = userDoc.data()
-        alert("Hello, "+data.name+"!")
         uName = data.name
 
 
