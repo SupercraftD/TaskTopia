@@ -19,7 +19,7 @@ h1{
 button{
   padding: 2%;
   background-color: skyblue;
-  font-size: 380%;
+  font-size: 250%;
   border-radius: 12%;
   border: skyblue;
 }
@@ -28,7 +28,7 @@ button:hover{
   cursor:pointer ;
 }
 button:active{
-  font-size: 350%;
+  font-size: 200%;
 }
 
 #avatar{
