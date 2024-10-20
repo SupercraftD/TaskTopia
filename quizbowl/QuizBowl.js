@@ -85,7 +85,7 @@ onAuthStateChanged(auth, async(user) => {
     
                 //no open lobby - create one
     
-                const response = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
+                const response = await fetch("https://opentdb.com/api.php?amount=10&type=multiple");
                 const questions = await response.json();
     
                 if (questions.response_code != 0){
